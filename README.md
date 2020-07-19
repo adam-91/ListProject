@@ -6,7 +6,7 @@ Program in python to create and working with shop and to do lists.
  - shop list
 
 # technologies and standards
-  -python 3.8
+ - python 3.8
  - sqlAlchemy
  - REST-API
 
