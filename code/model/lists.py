@@ -1,20 +1,17 @@
-from app import db
+from db import db
 
-class ItemModel(db.Model):
-    __tablename__ = 'items'
+class ListsModel(db.Model):
+    __tablename__ = 'lists'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80))
-    category = db.Column(db.String(80))
-    unit = db.Column(db.String(1))
+    name = db.Column(db.String(80), unique=True)
+    list_type = db.Column(db.String(10))
 
-    def __init__(self, name, category, unit):
+    def __init__(self, name, list_type):
         self.name = name
-        self.category = category
-        self.unit = unit
 
     def json(self):
-        return {'name': self.name, 'category': self.category, 'unit': self.unit}
+        return {'name': self.name}
 
     @classmethod
     def find_by_name(cls, name):
