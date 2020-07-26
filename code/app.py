@@ -7,8 +7,7 @@ from db import db
 #from security import authenticate, identity
 from resources.user import UserRegister
 from resources.item import Item, ItemList
-from resources.lists import Lists
-from resources.shopList import ShopList
+from resources.shopping import Shopping, ShoppingList
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
@@ -26,8 +25,8 @@ def create_tables():
 api.add_resource(Item, '/item/<string:name>')
 api.add_resource(ItemList, '/items')
 api.add_resource(UserRegister, '/register')
-api.add_resource(ShopList, '/shop_list/<int:list_id>')
-api.add_resource(Lists, '/lists/<string:name>')
+api.add_resource(Shopping, '/shopping/<string:name>')
+api.add_resource(ShoppingList, '/shoppings')
 
 if __name__ == '__main__':
     

@@ -4,17 +4,19 @@ class ItemModel(db.Model):
     __tablename__ = 'items'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80))
+    name = db.Column(db.String(80), unique=True)
     category = db.Column(db.String(80))
-    unit = db.Column(db.String(1))
+    value = db.Column(db.Float(2))
+    unit = db.Column(db.String(3))
 
-    def __init__(self, name, category, unit):
+    def __init__(self, name, category, value, unit):
         self.name = name
         self.category = category
+        self.value = value
         self.unit = unit
 
     def json(self):
-        return {'name': self.name, 'category': self.category, 'unit': self.unit}
+        return {'name': self.name, 'category': self.category, 'value': self.value, 'unit': self.unit}
 
     @classmethod
     def find_by_name(cls, name):
