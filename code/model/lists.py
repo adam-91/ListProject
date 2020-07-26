@@ -1,6 +1,6 @@
 from db import db
 
-class ListsModel(db.Model):
+class ListModel(db.Model):
     __tablename__ = 'lists'
 
     id = db.Column(db.Integer, primary_key=True)
