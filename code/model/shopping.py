@@ -7,7 +7,7 @@ class ShoppingModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique = True)
     items = db.relationship('ItemModel', lazy='dynamic')
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user_model.id'))
     status = db.Column(db.String(40))
 
     def __init__(self, name, item, user_id, status):

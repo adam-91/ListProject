@@ -8,6 +8,7 @@ class ItemModel(db.Model):
     category = db.Column(db.String(80))
     value = db.Column(db.Float(2))
     unit = db.Column(db.String(3))
+    shopping_id = db.Column(db.Integer, db.ForeignKey('shopping.id'))
 
     def __init__(self, name, category, value, unit):
         self.name = name

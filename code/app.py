@@ -4,7 +4,7 @@ from flask_jwt import JWT
 from flask_sqlalchemy import SQLAlchemy
 from db import db
 
-#from security import authenticate, identity
+from security import authenticate, identity
 from resources.user import UserRegister
 from resources.item import Item, ItemList
 from resources.shopping import Shopping, ShoppingList
@@ -20,7 +20,7 @@ api = Api(app)
 def create_tables():
     db.create_all()
 
-#jwt = JWT(app, authenticate, identity)
+jwt = JWT(app, authenticate, identity)
 
 api.add_resource(Item, '/item/<string:name>')
 api.add_resource(ItemList, '/items')
